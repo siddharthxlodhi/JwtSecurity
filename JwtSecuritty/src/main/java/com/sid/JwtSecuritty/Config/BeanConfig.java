@@ -30,6 +30,7 @@ public class BeanConfig {
     }
 
     @Bean
+    @Transactional
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());
