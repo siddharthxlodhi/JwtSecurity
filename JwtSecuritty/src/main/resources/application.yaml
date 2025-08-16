@@ -2,15 +2,14 @@ spring:
   application:
     name: JwtSecurity
   datasource:
-    url: jdbc:postgresql://localhost:5432/jwt_security
-    password: pass
-    username: user
+    url: jdbc:mysql://localhost:3306/jwt_security
+    password: Sid@78989236
+    username: root
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: false
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: mysql
     properties:
       hibernate:
         format_sql: true
@@ -37,7 +36,8 @@ application:
   security:
     jwt:
       secret-key: f61ab23e04e7ae9a1a5362e50d6a460b21c1a299f12b5ad2acb223d9533b0410364fb94084f0a68ffb659a9b732ff341e8b212a6bd22c2a67fe30735a1d56bbd
-      expiration: 86400000  # one day
+      access_expiration: 86400000  # one day
+      refresh_expiration: 86400000
   mailing:
     activation-url: http://localhost:4200/activate-account
 

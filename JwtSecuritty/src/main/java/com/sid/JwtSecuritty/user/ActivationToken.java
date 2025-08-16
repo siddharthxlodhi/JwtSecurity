@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 @Entity
-public class Token {
+@Table(name = "activation_token")
+public class ActivationToken {
     @Id
     @GeneratedValue
     private Integer id;

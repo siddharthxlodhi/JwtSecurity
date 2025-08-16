@@ -1,6 +1,7 @@
 package com.sid.JwtSecuritty.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sid.JwtSecuritty.JwtConfig.Token;
 import com.sid.JwtSecuritty.role.Roles;
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,6 +15,7 @@ import java.security.Principal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -39,6 +41,9 @@ public class User implements UserDetails, Principal {
     private String password;
     private boolean accountLocked;
     private boolean enabled;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> token;
 
     @ManyToMany(cascade = ALL, fetch = EAGER)
     private Set<Roles> roles;
